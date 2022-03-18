@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600&display=swap');
+
+.app {
+  background-color: #211f1f;
+  min-height: 100vh;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 16px;
+  background-color: #c92502;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.button-light {
+  background-color: transparent;
+  border: 1px solid #c92502;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.pagination{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+}
+
+.paginationButton{
+  margin: 0 5px;
+  background: transparent;
+  border: transparent;
+  border-radius: 30px;
+}
+
+
+.paginationButton:hover {
+   background-color: #c92502;
+   color: #fff;
+ }
+
+
+.arrowRight {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.arrowLeft {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.search {
+  display: flex;
+  padding: 32px 16px;
+
+  input {
+    max-width: 350px;
+    width: 100%;
+    padding: 12px 6px;
+    font-size: 14px;
+    border: none;
+    border-bottom: 2px solid  rgba(201, 38, 2, 0.9);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
