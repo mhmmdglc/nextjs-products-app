@@ -6,14 +6,10 @@ const Product = ({item}) => {
     const [variant, setVariant] = useState(null)
     useEffect(() => {
         setVariant(item.variants[0])
-        console.log(variant)
     }, [item]);
 
     const onChangeVariant = (val) => {
-        console.log(variant)
-        console.log(val.target.value)
         setVariant(item.variants.find(variant => variant.id.toString() ===val.target.value.toString()))
-      //  setVariant(val.target.value)
     }
     return (
         <div>

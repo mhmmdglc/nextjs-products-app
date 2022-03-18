@@ -1,76 +1,40 @@
-.singleProduct {
-  color:  #c92502;
-  min-height: 100vh;
+.pagination{
   display: flex;
-  flex-direction: column;
+  width: 100%;
   justify-content: center;
-  padding: 32px 16px;
+  align-items: center;
+  flex-direction: row;
+  padding: 20px;
+}
 
-  .button {
-    align-self: flex-start;
-    margin-bottom: 32px;
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #c92502;
-    border: none;
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all .3s ease;
-  }
-
-  .productInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    color:  #c92502;
-    @media (min-width: 800px) {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-
-    .productImg {
-      img {
-        max-height: 500px;
-        width: 100%;
-        border: 1px solid  #c92502;
-        @media (min-width: 800px) {
-          max-height: 700px;
-          width: initial;
-        }
-      }
-    }
-
-    .productContent {
-      h1 {
-        font-size: 56px;
-        font-weight: 400;
-      }
-
-      .radioButton:checked{
-        accent-color: #c92502;
-      }
+.paginationButton{
+  margin: 0 5px;
+  background: transparent;
+  border: transparent;
+  border-radius: 30px;
+}
 
 
-      .productFact {
-        margin-top: 12px;
-        font-size: 20px;
-        line-height: 1.5;
+.paginationButton:hover {
+  background-color: #c92502;
+  color: #fff;
+}
 
-        span {
-          font-weight: 600;
-          text-decoration: underline;
-        }
-      }
 
-      .tagline {
-        font-style: italic;
+.arrowRight {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
 
-        span {
-          font-style: normal;
-        }
-      }
-    }
-  }
+.arrowLeft {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }

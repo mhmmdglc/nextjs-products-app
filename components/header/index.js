@@ -1,12 +1,9 @@
-import style from "./style.module.scss"
+import Image from "next/image";
 
-
-const Footer = () => {
+const Header = () => {
   return (
-      <p className={style.text}>
-          © Copyright 2022 Muhammed Gulcu. All rights reserved.
-      </p>
+      <Image src="/images/winter-banner.jpg" alt="me" width="1500" height="600"/>
   )
 }
 
-export default Footer
+export default Header

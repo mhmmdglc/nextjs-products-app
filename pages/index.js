@@ -3,50 +3,36 @@ import axios from "axios";
 import Cards from "../components/cards";
 import {useEffect, useState} from "react";
 import Image from 'next/image'
+import ProductList from "../containers/productList";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 
 export default function Home({data}) {
     const [productData, setProductData] = useState([]);
-    const [filterData, setFilterData] = useState([]);
-    const [paginationNumber, setPaginationNumber] = useState(0);
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
-        if (data.products.length > 10) {
-            setProductData(data.products.slice(0, 10))
-            setPaginationNumber(Math.ceil(data.products.length / 10))
-        } else {
             setProductData(data.products)
-        }
     }, [data])
 
-    const paginatedData = (e) => {
-        setProductData(data.products.slice((e - 1) * 10, (e * 10)));
-    };
+
 
     const searchHandle = (val) => {
-        setFilterData(data.products.filter(product => {
-            return product.title.toLowerCase().includes(val.target.value.toLowerCase())
+        setProductData(data.products.filter(product => {
+            return product.title.toLowerCase().includes(val)
         }))
+        setSearch(val)
     }
     return (
         <div className={styles.container}>
-            <Image src="/images/winter-banner.jpg" alt="me" width="1500" height="600"/>
-
+            <Header/>
             <div className={styles.search}>
-                <input onChange={(val) => searchHandle(val)} type="text" placeholder="Search"/>
-                <button className={styles.button}>Clear Search</button>
+                <input onChange={(val) => searchHandle(val.target.value.toLowerCase())} type="text" placeholder="Search" value={search}/>
+                {search.length>0 &&<button className={styles.button} onClick={()=>searchHandle("")}>Clear Search</button>}
             </div>
-
-            <Cards cardsItem={productData}/>
-            {paginationNumber}
-            <div className={styles.pagination}>
-                <p><i className={styles.arrowLeft}/></p>
-                {Array.from(Array(paginationNumber), (i, e) => {
-                    return <button className={styles.paginationButton} onClick={() => paginatedData(e + 1)}
-                                   key={e}>{e + 1}</button>
-                })}
-                <p><i className={styles.arrowRight}/></p>
-            </div>
+            {productData.length>0 && <ProductList items={productData}/>}
+            <Footer/>
         </div>
     )
 }
