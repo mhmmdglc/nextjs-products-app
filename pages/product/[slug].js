@@ -1,22 +1,23 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
+import Product from "../../containers/product";
+import styles from '../../styles/Home.module.scss'
 
 const ProductPage = ({data}) => {
     const router = useRouter();
-    const [productData, setProductData] = useState([]);
-    console.log(router)
-    useEffect(() => {
-        console.log(router.query["slug"])
+    const [productData, setProductData] = useState(null);
 
+    useEffect(() => {
         setProductData(data.products.find(product => {
-            console.log( product.id)
             return product.id.toString() === router.query["slug"].toString()
         }))
-        console.log(productData)
     }, [data])
+
   return(<div>
-      {productData && productData.title}
+      <div className={styles.container}>
+          {productData && <Product item={productData} />}
+      </div>
   </div>)
 }
 
